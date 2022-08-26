@@ -1,0 +1,18 @@
+{
+    "title_cheko": "شيكو",
+
+    "title_internalError": "خطأ داخلي",
+    "title_pageNotFound":"الصفحة غير موجودة",
+    "title_home": "الصفحة الرئيسية",
+
+    "common_hi":"اهلا",
+    "common_noInternet":"تعذر العثور على اتصال إنترنت",
+    "common_unknown": "غير معروف",
+  
+    "msg_successful":"عملية ناجحة",
+    "msg_changesSaved": "تم حفظ التغييرات بنجاح",
+
+    "error_title": "تنبيه",
+
+    "empty_state_item":"لا توجد عناصر حاليا"
+}

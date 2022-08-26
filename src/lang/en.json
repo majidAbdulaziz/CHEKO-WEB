@@ -1,0 +1,20 @@
+{
+    "title_cheko": "CHEKO",
+
+    "title_internalError": "Internal Error",
+    "title_pageNotFound":"Page Not Found",
+    "title_home": "Main Page",
+
+    "common_welcome":"Welcome",
+
+    "common_hi":"Hi",
+    "common_noInternet":"No internet connection found",
+    "common_unknown": "Unknown",
+
+    "msg_successful":"Success",
+    "msg_changesSaved": "Changes Saved Successfully",
+
+    "error_title":"Heads Up",
+    
+    "empty_state_item":"No Item yet"
+}

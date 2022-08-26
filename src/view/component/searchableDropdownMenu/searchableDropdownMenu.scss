@@ -1,0 +1,32 @@
+@import "../../../assets/css/config.scss";
+
+
+.searchableDropdownMenu-naked
+{
+  font-size: unset;
+  display: unset;
+  font-weight: unset; 
+  line-height: unset;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.searchableDropdownMenu-Dropdownpadding
+{
+  padding-top: 0.5rem!important;
+  padding-bottom: 0.5rem!important;
+}
+
+.searchableDropdownMenu-dropdown
+{
+  width: 200px !important;
+  max-width: 200px !important;
+  top: 5px !important;
+  z-index: 50 !important;
+}

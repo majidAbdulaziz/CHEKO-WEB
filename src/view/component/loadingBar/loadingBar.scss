@@ -1,0 +1,17 @@
+@import "../../../assets/css/config.scss";
+
+.loadingBar-progress
+{
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    background-color: grey;
+}
+
+.loadingBar-bar
+{
+    width: 1%;
+    height: 30px;
+    background-color: rgb(255, 0, 0);
+}

@@ -1,0 +1,66 @@
+/* FONE SIZE */
+$size-text-xs: 10px;
+$size-text-sm: 12px;
+$size-text-md: 14px;
+$size-text-lg: 24px;
+$size-text-xl: 36px;
+$size-section-titles: 19px;
+
+/* THEME-LIGHT */
+$color-light-primary: #ebeaee;
+$color-light-primary-highlight: #ffffff;
+$color-light-primary-with-alpha: rgba(235, 234, 238, 1);
+$color-light-secondary: #fcfcfc;
+$color-light-secondary-highlight: #fcfcfc;
+$color-light-alternative: #2b2b2b;
+$color-light-alternative-highlight: #000000;
+$color-light-accent: #e66948;
+$color-light-accent-highlight: #fd8b6c;
+$color-light-element: #f0f0f3;
+$color-light-exception: #f6f6f9;
+$color-light-quaternary:#4F008C;
+
+/* THEME-DARK */
+$color-dark-primary: #1b2128;
+$color-dark-primary-highlight: #ffffff;
+$color-dark-primary-with-alpha: rgba(20, 25, 31, 0.9);
+$color-dark-secondary: #1f252c;
+$color-dark-secondary-highlight: #262e37;
+$color-dark-alternative: #919a9f;
+$color-dark-alternative-highlight: #ffffff;
+$color-dark-accent: #e66948;
+$color-dark-accent-highlight: #fd8b6c;
+$color-dark-element: #1f252c;
+
+/* EXTRA CONSTANT COLORS */
+$color-accent: #e66948;
+$color-rose: #ff375e;
+$color-sky: #1bced8;
+$color-purple: #a54ee1;
+$color-sun: #fff039;
+$color-light-green: #00c48c;
+$color-alternative: #748aa1;
+$color-disabled: #55433c;
+$color-sand: #5c5400;
+$color-success: #05c46b;
+$color-warning: #ffd400;
+$color-danger: #dc3545;
+$color-button-text: #ffffff;
+
+/* ROUNDED CORNER */
+$size-rounded-corner-xs: 5px;
+$size-rounded-corner-sm: 8px;
+$size-rounded-corner-md: 15px;
+$size-rounded-corner-lg: 25px;
+$size-rounded-circle: 50%;
+
+/* BREAK POINTS */
+$breakpoint-xs: 575px;
+$breakpoint-sm: 767px;
+$breakpoint-md: 991px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1999px;
+
+/* ANIMATION SPEED */
+$animation-speed-slow: 400ms;
+$animation-speed-fast: 200ms;

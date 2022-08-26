@@ -1,0 +1,45 @@
+@import "../../../assets/css/config.scss";
+
+.skeletonSceen-blink
+{
+    animation: blinker 1s linear infinite;
+}
+
+.skeletonSceen-imageProfile
+{
+    height: 45pt;
+    width: 45pt;
+    border-radius: 22.5pt;
+}
+
+.skeletonSceen-25-width
+{
+    width: 25% !important;
+}
+
+.skeletonSceen-half-width
+{
+    width: 50% !important;
+}
+
+.skeletonSceen-75-width
+{
+    width: 75% !important;
+}
+
+.skeletonSceen-banner
+{
+    height: 245px;
+}
+.skeletonSceen-circle
+{
+    height: 125px;
+    width: 125px !important;
+    border-radius: 50%;
+    animation: blinker 1s linear infinite;
+    
+}
+
+
+
+

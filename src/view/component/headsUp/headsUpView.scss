@@ -1,0 +1,33 @@
+@import "../../../assets/css/config.scss";
+
+
+.rtl-headsUpView-pageTitle-wrapper
+{
+    position: absolute;
+    top: 30px;
+    right: 1rem;
+}
+
+.ltr-headsUpView-pageTitle-wrapper
+{
+    position: absolute;
+    top: 30px;
+    left: 3rem;
+    
+}
+
+.headsUpView-firstButton
+{
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+}
+
+.headsUpView-dropdown
+{
+	padding-top: 11px !important;
+    padding-bottom: 11px !important;
+    z-index: 20;
+    border: unset !important;
+}
+
+

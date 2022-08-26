@@ -1,0 +1,229 @@
+@import "../../../assets/css/config.scss";
+
+
+.sidebarMenu-user-avatar
+{
+    height: 78px;
+    width: 78px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.sidebarMenu-officialAccount
+{
+    background-color: $color-accent;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+.sidebarMenu-user-avatar-collapse
+{
+    height: 60px !important;
+    width: 60px !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.sidebarMenu-item-inactive
+{
+    // filter: brightness(0.85);
+    opacity:1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    -webkit-transition: background-color $animation-speed-slow ease-in-out;
+    transition: background-color $animation-speed-slow ease-in-out;
+    -webkit-transition: opacity $animation-speed-slow ease-in-out;
+    transition: opacity $animation-speed-slow ease-in-out;
+}
+
+.ltr-sidebarMenu-item-active div .text-center
+{
+    -webkit-transition: background-color $animation-speed-slow ease-in-out;
+    transition: background-color $animation-speed-slow ease-in-out;
+
+    border-left-width: 3px;
+    border-left-style: solid !important;
+
+    -webkit-border-top-right-radius: $size-rounded-corner-xs;
+	-khtml-border-radius-topright: $size-rounded-corner-xs;
+	-moz-border-radius-topright: $size-rounded-corner-xs;
+	border-top-right-radius: $size-rounded-corner-xs;
+
+    -webkit-border-bottom-right-radius: $size-rounded-corner-xs;
+	-khtml-border-radius-bottomright: $size-rounded-corner-xs;
+	-moz-border-radius-bottomright: $size-rounded-corner-xs;
+	border-bottom-right-radius: $size-rounded-corner-xs;
+}
+
+.rtl-sidebarMenu-item-active div .text-center
+{
+    -webkit-transition: background-color $animation-speed-slow ease-in-out;
+    transition: background-color $animation-speed-slow ease-in-out;
+
+    border-right-width: 3px;
+    border-right-style: solid !important;
+
+    -webkit-border-top-left-radius: $size-rounded-corner-xs;
+	-khtml-border-radius-topleft: $size-rounded-corner-xs;
+	-moz-border-radius-topleft: $size-rounded-corner-xs;
+	border-top-left-radius: $size-rounded-corner-xs;
+
+    -webkit-border-bottom-left-radius: $size-rounded-corner-xs;
+	-khtml-border-radius-bottomleft: $size-rounded-corner-xs;
+	-moz-border-radius-bottomleft: $size-rounded-corner-xs;
+	border-bottom-left-radius: $size-rounded-corner-xs;
+}
+
+.ltr-sidebarMenu-item-active-collapse div .text-center
+{
+    -webkit-transition: background-color $animation-speed-slow ease-in-out;
+    transition: background-color $animation-speed-slow ease-in-out;
+
+    border-left-width: 3px;
+    border-left-style: solid !important;
+
+    -webkit-border-top-right-radius: 0px !important;
+    -khtml-border-radius-topright: 0px !important;
+    -moz-border-radius-topright: 0px !important;
+    border-top-right-radius: 0px !important;
+
+    -webkit-border-bottom-right-radius: 0px !important;
+    -khtml-border-radius-bottomright: 0px !important;
+    -moz-border-radius-bottomright: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.rtl-sidebarMenu-item-active-collapse div .text-center
+{
+    -webkit-transition: background-color $animation-speed-slow ease-in-out;
+    transition: background-color $animation-speed-slow ease-in-out;
+
+    border-right-width: 3px;
+    border-right-style: solid !important;
+    font-size: $size-text-md;
+
+    -webkit-border-top-left-radius: 0px !important;
+    -khtml-border-radius-topleft: 0px !important;
+    -moz-border-radius-topleft: 0px !important;
+    border-top-left-radius: 0px !important;
+
+    -webkit-border-bottom-left-radius: 0px !important;
+    -khtml-border-radius-bottomleft: 0px !important;
+    -moz-border-radius-bottomleft: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+.sidebarMenu-button
+{
+    background-color: transparent !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+}
+
+@media only screen and (max-width: 991px)
+{
+    .ltr-sidebarMenu-item-active div .text-center
+    {
+        -webkit-border-top-right-radius: 0px !important;
+        -khtml-border-radius-topright: 0px !important;
+        -moz-border-radius-topright: 0px !important;
+        border-top-right-radius: 0px !important;
+
+        -webkit-border-bottom-right-radius: 0px !important;
+        -khtml-border-radius-bottomright: 0px !important;
+        -moz-border-radius-bottomright: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+
+    .rtl-sidebarMenu-item-active div .text-center
+    {
+        -webkit-border-top-left-radius: 0px !important;
+        -khtml-border-radius-topleft: 0px !important;
+        -moz-border-radius-topleft: 0px !important;
+        border-top-left-radius: 0px !important;
+
+        -webkit-border-bottom-left-radius: 0px !important;
+        -khtml-border-radius-bottomleft: 0px !important;
+        -moz-border-radius-bottomleft: 0px !important;
+        border-bottom-left-radius: 0px !important;
+    }
+
+    .sidebarMenu-user-avatar
+    {
+        height: 50px !important;
+        width: 50px !important;
+    }
+    
+}
+
+
+
+
+.sidebarMenu-item-inactive:not(:first-child) div div i
+{
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+
+.sidebarMenu-persona
+{
+    padding: 4px 16px 3px 16px !important;
+    min-width: 70px;
+    text-align: center;
+}
+
+.sidebarMenu-gamer
+{
+    background-color: $color-purple !important;
+}
+
+.sidebarMenu-team
+{
+    background-color: $color-sky !important;
+}
+
+.sidebarMenu-game_center
+{
+    background-color: $color-rose !important;
+}
+
+.sidebarMenu-organizer
+{
+    background-color: $color-accent !important;
+}
+
+.sidebarMenu-avatar-Container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebarMenu-settings-icon
+{
+    border-radius: 50%;
+    height: 44px;
+    width: 45px;
+    padding-top: 8px;
+}
+
+.sidebarMenu-logout-button
+{
+    color: $color-danger !important;
+}
+
+
+.sidebarMenu-logout
+{
+    bottom: 0px;
+}
