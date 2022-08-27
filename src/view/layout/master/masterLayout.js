@@ -3,12 +3,12 @@ import View from '../../../core/view';
 import { withRouter } from 'react-router';
 import {createRef} from "react";
 import { Link } from "react-router-dom";
-import { Row, Col} from "reactstrap";
-import {Image} from "react-bootstrap";
+import {Container, Row, Col} from "reactstrap";
 
 import NoInternetConnectionViewController from '../../../viewController/static/noInternetConnectionViewController';
 
-
+import CustomButton from '../../component/button/customButton';
+import headerBackground from '../../../assets/images/headerBackground.png'
 import Session from "../../../helper/session";
 
 import "./masterLayout.scss";
@@ -26,22 +26,20 @@ class MasterLayoutView extends View
 			searchKey: '',
 			searchValue:"user",
 			searchLabel:this.i18n('title_users'),
-
+			tabs: 
+			[
+				{
+					title: this.i18n('title_home'),
+					route: '/'
+				},
+				{
+					title: this.i18n('title_map'),
+					route: '/map'
+				}
+			]
 
 		}
 		this._optionsDropdown = createRef(null);
-		this._listOfOptions = 
-        [
-            { "value": "user", "label": this.i18n('title_users') },
-            { "value": "tournaments", "label": this.i18n('title_tournaments')},
-			{ "value": "playgrounds", "label": this.i18n('title_playgrounds')},
-			{ "value": "flags", "label": this.i18n('title_flags')},
-        ];
-	}
-
-	toggleCollapse()
-	{
-		this._isMounted && this.setState({...this.state, isCollapsed: !this.state.isCollapsed});
 	}
 
 	handleSearchChanges(e)
@@ -59,11 +57,6 @@ class MasterLayoutView extends View
 	searchForUsers()
 	{
 		alert(this.props?.searchKey)
-	}
-
-	toggleProfileModal()
-	{
-		this._isMounted && this.props?.toggleModal("open",'userProfileModal')
 	}
 
 	toggleOptions()
@@ -111,37 +104,52 @@ class MasterLayoutView extends View
         this._isMounted && window.removeEventListener('offline', () => this.updateInternetConnection(false));
     }
 
-
     render()
     {
-		const prefs = Session.getPreferences();		
-		
+		const prefs = Session.getPreferences();	
 
         return (
 			<>
 				{this.state?.isOnline
 				?
-					<div style={{direction:prefs?.dir}} className={`masterLayout-mainContainer h-100 p-4 t-${prefs?.theme}-bg-secondary`}>
+					<div style={{direction:prefs?.dir}} className={`masterLayout-mainContainer h-100 t-${prefs?.theme}-bg-secondary`}>
 						<div className={`masterLayout-bodyContainer`}>
-							<div className={`masterLayout-headerContainer t-${prefs?.theme}-bg-secondary`}>
-								<Row className={`m-0 p-0 align-items-center ${prefs?.dir}-primaryFont pb-4`}>
-									
-									<Col className={`p-0 m-0`}>
-										<div className={`p-0 m-0 d-flex justify-content-end align-items-center`}>
-											<div className={`p-0 m-0 px-2 d-none d-lg-flex`}>
-												<div className={` p-0 m-0 text-justify d-none d-lg-block t-${prefs?.theme}-text-alternative-highlight font-md `}>
-													{`${this.i18n('common_welcome')} 👋`}
-												</div>
-												<div className={`p-0 m-0 d-none d-lg-block text-justify t-${prefs?.theme}-text-alternative-highlight font-md`}>
-													{`${this.i18n('common_admin')}`}
-												</div>
-											</div>
-										</div>
+
+							<div style={{backgroundImage: `url(${headerBackground})`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}} className={`t-${prefs?.theme}-masterLayout-headerBackgorund-filter masterLayout-headerBackgorund`} />
+
+							<div className={` t-${prefs?.theme}-bg-header ${prefs?.dir}-header-rounded-bottom-trailing masterLayout-headerContainer`}>
+								<Row>
+									<Col xs={1}/>
+									<Col xs={10}>
+										<Row className={`m-0 p-0 align-items-center`}>
+											{
+												this.state?.tabs?.map(tab => (
+													<Link style={{zIndex: 100}} className="naked" to={tab?.route}>
+														<CustomButton
+															iconAndText={false}
+															viewIsLoading={false}
+															disabled={false}
+															style={`
+																pt-4 pb-3 px-3 
+																${prefs?.dir}-rounded-bottom 
+																${tab?.route === this.props.location.pathname ? `t-${prefs?.theme}-bg-accent ` : ''} 
+																${tab?.route === this.props.location.pathname ? `t-${prefs?.theme}-text-alternative` : `t-${prefs?.theme}-text-secondary`} 
+																${prefs?.dir}-primaryFont text-center
+															`}
+															text={tab?.title}
+														/>
+													</Link>
+												))
+											}
+										</Row>
+
+										<Row className={`mt-25 p-0 align-items-center ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-secondary`}>
+											eke
+										</Row>
 									</Col>
 								</Row>
 							</div>
 						</div>
-						
 					</div>
 				:
 					<NoInternetConnectionViewController buttonAction={this.recheckInternetConnection.bind(this)} />

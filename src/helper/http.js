@@ -8,10 +8,14 @@ const HTTP = {
 			url: url,
 			data: postData
 		})
-
 			.then(function(response){
 				if (response.data !== undefined && response.data !== null)
 				{
+					if (response.data.is_successful === undefined)
+					{
+						response.data.is_successful = true;
+					}
+					
 					return response.data;
 				}
 				else
@@ -27,7 +31,7 @@ const HTTP = {
 				return {
 					is_successful: false,
 					error_code: 1000,
-					error_msg: "",
+					error_msg: response,
 				};
 			});
 	}

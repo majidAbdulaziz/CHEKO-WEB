@@ -14,7 +14,7 @@ $color-light-secondary: #fcfcfc;
 $color-light-secondary-highlight: #fcfcfc;
 $color-light-alternative: #2b2b2b;
 $color-light-alternative-highlight: #000000;
-$color-light-accent: #e66948;
+$color-light-accent: #F4CBDF;
 $color-light-accent-highlight: #fd8b6c;
 $color-light-element: #f0f0f3;
 $color-light-exception: #f6f6f9;
@@ -28,12 +28,12 @@ $color-dark-secondary: #1f252c;
 $color-dark-secondary-highlight: #262e37;
 $color-dark-alternative: #919a9f;
 $color-dark-alternative-highlight: #ffffff;
-$color-dark-accent: #e66948;
+$color-dark-accent: #F4CBDF;
 $color-dark-accent-highlight: #fd8b6c;
 $color-dark-element: #1f252c;
 
 /* EXTRA CONSTANT COLORS */
-$color-accent: #e66948;
+$color-accent: #F4CBDF;
 $color-rose: #ff375e;
 $color-sky: #1bced8;
 $color-purple: #a54ee1;
@@ -46,12 +46,14 @@ $color-success: #05c46b;
 $color-warning: #ffd400;
 $color-danger: #dc3545;
 $color-button-text: #ffffff;
+$color-header-bg-color: #111216;
 
 /* ROUNDED CORNER */
 $size-rounded-corner-xs: 5px;
 $size-rounded-corner-sm: 8px;
 $size-rounded-corner-md: 15px;
 $size-rounded-corner-lg: 25px;
+$size-rounded-corner-xl: 36px;
 $size-rounded-circle: 50%;
 
 /* BREAK POINTS */

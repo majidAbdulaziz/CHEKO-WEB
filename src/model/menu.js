@@ -1,20 +1,15 @@
 import HTTP from '../helper/http';
+import AppConfigs from '../config/appConfigs';
 
-const BalanceModel =
+const MenuModel =
 {
     
-    recharge: async function(formData)
+    recharge: async function()
     {
-        var url = 'https://admin.pup.a2hosted.com/balance/recharge';
+        var url = AppConfigs?.apiBaseURL + '/v1/menu';
 
-        var postData = new FormData();
-        Object.keys(formData)?.map(key => 
-        {
-            return formData[key] !== '' ? postData.append(key, formData[key]) : null ;
-        });
-
-        return await HTTP.post(url, postData).then(response =>{return response;})
+        return await HTTP.post(url, {}).then(response =>{return response;})
     }
 }
 
-export default BalanceModel;
+export default MenuModel;

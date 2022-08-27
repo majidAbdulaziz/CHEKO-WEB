@@ -55,11 +55,6 @@ class App extends Component
 		this._isMounted = false;
 	}
 
-	refreshSideMenu() 
-	{
-		this._isMounted && this.setState({ ...this.state, sideMenuKey: Math.random() });
-	}
-
 	toggleModal(action, activeModal, optionalData = {}) 
 	{
 		if (action.toLowerCase() === "open") {

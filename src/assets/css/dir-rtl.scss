@@ -93,6 +93,14 @@
 }
 
 /* ROUNDED CORNERS */
+.rtl-header-rounded-bottom-trailing
+{
+    -webkit-border-bottom-left-radius: $size-rounded-corner-xl !important;
+	-khtml-border-radius-bottomleft: $size-rounded-corner-xl !important;
+	-moz-border-radius-bottomleft: $size-rounded-corner-xl !important;
+	border-bottom-left-radius: $size-rounded-corner-xl !important;
+}
+
 .rtl-rounded-top-leading
 {
     -webkit-border-top-right-radius: $size-rounded-corner-sm !important;

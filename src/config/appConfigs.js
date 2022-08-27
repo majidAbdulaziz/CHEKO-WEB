@@ -13,7 +13,7 @@ const CONFIG =
 	supportedThemes: ["light", "dark"],
 
 	// API
-	apiBaseURL: 'https://foodbukka.herokuapp.com/'
+	apiBaseURL: 'https://foodbukka.herokuapp.com/api/'
 
 };
 
