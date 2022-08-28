@@ -17,7 +17,6 @@ export default class HomeViewController extends ViewController
                     id:1,
                     title: this.i18n('categories.breakfast'),
                     color: '#F4CBDF',
-                    isSelected: true,
                     icon: 'icon_breakfast.png',
                     qunatity: 0
                 },
@@ -25,7 +24,6 @@ export default class HomeViewController extends ViewController
                     id:2,
                     title: this.i18n('categories.drinks'),
                     color: '#CDDFEC',
-                    isSelected: false,
                     icon: 'icon_coffee.png',
                     qunatity: 0
                 },
@@ -33,7 +31,6 @@ export default class HomeViewController extends ViewController
                     id:3,
                     title: this.i18n('categories.soups'),
                     color: '#E7DEE3',
-                    isSelected: false,
                     icon: 'icon_soup.png',
                     qunatity: 0
                 },
@@ -41,7 +38,6 @@ export default class HomeViewController extends ViewController
                     id:4,
                     title: this.i18n('categories.sushi'),
                     color: '#D1D1EF',
-                    isSelected: false,
                     icon: 'icon_sushi.png',
                     qunatity: 0
                 },
@@ -49,17 +45,23 @@ export default class HomeViewController extends ViewController
                     id:5,
                     title: this.i18n('categories.orders'),
                     color: '#D0EAE3',
-                    isSelected: false,
                     icon: 'icon_documents.png',
                     qunatity: 0
                 },
-            ]
+            ],
+
+            selectedCategory: 1
 		}
 	}
 
+    chooseCategory(id)
+    {
+        this._isMounted && this.setState({selectedCategory: id});
+    }
+
 	viewControllerDidMount()
     {
-		this.setTitle("title_home");
+		this._isMounted && this.setTitle("title_home");
 	}
 
 	render()
@@ -67,6 +69,8 @@ export default class HomeViewController extends ViewController
 		return(
                 <HomeView 
                     categories={this.state?.categories}
+                    chooseCategory={this.chooseCategory.bind(this)}
+                    selectedCategory={this.state?.selectedCategory}
                 />
 		);
 	}
