@@ -127,6 +127,39 @@ export default class HomeViewController extends ViewController
         this._isMounted && this.filterList(this.state?.categories?.filter(category => category?.id === id)[0]?.title);
     }
 
+    changeQuantity(id, action)
+    {
+        const menu = this.state?.list;
+        let menuItem;
+
+        menu?.forEach(item =>
+        {
+            if (item?._id === id)
+            {
+                menuItem = item;
+            }
+        });
+
+        if (menuItem)
+        {
+            if (action === 'increase')
+            {
+                menuItem.qunatity = menuItem?.qunatity ? menuItem?.qunatity + 1 : 1;
+            }
+            else
+            {
+                menuItem.qunatity = menuItem?.qunatity ? menuItem?.qunatity - 1 : 0;
+            }
+        }
+        
+        if (menuItem?.qunatity < 0)
+        {
+            menuItem.qunatity = 0;
+        }
+
+        this._isMounted && this.setState({list: menu});
+    }
+
 	viewControllerDidMount()
     {
 		this._isMounted && this.setTitle("title_home");
@@ -140,6 +173,7 @@ export default class HomeViewController extends ViewController
                     categories={this.state?.categories}
                     chooseCategory={this.chooseCategory.bind(this)}
                     selectedCategory={this.state?.selectedCategory}
+                    changeQuantity={this.changeQuantity.bind(this)}
                     list={this.state?.list}
                 />
 		);

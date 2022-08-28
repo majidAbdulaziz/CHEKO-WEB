@@ -16,7 +16,7 @@ export default class HomeView extends View
 
     changeQuantity(id, action)
     {
-
+        this._isMounted && this.props?.changeQuantity(id, action);
     }
 
     render()
@@ -66,7 +66,7 @@ export default class HomeView extends View
 
                         <Row className={`wrap mt-5`}>
                             {
-                                this.props?.list?.map(item => (
+                                this.props?.list?.map((item, index) => (
                                     <Col id={item?._id} xs={1} className={`${prefs?.dir} menu-item m-0 mt-2 mb-2 mx-4 p-3 pt-4 px-4 rounded-md`}>
                                         <Row className={``}>
                                             <img
@@ -74,33 +74,47 @@ export default class HomeView extends View
                                                 className={`item-image m-0 p-0 rounded-md`}
                                                 alt={item?.menuname + ' ' + this.i18n('common_image')}
                                             />
-                                            <Col>
+                                            <Col className={`px-4 position-relative`}>
                                                 <div className={`${prefs?.dir} mt-3 ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-alternative`}>
                                                     {item?.menuname}
                                                 </div>
+
                                                 <div className={`${prefs?.dir} mt-3 ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-alternative-highlight opacity-50 font-sm`}>
                                                     {"200 " + this.i18n('common_calories')}
                                                 </div>
 
+                                                {
+                                                    (index === 0 || index === 1)
+                                                    ?
+                                                        <div className={`best-sale-container px-3 py-1 ${prefs?.dir} mt-3 ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-alternative-highlight font-md rounded-xs`}>
+                                                            {this.i18n('common_bestSale')}
+                                                        </div>
+                                                    :
+                                                        null
+                                                }
+
+
                                                 <Row className={`price-container`}>
-                                                    <Col xs={4} className={`p-0 px-2 price-text ${prefs?.dir} ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-accent font-lg font-weight-bold`}>
-                                                        {Formatter?.numberToStringWithCurrency(20, false, prefs?.currency, 'rtl', prefs?.lang)}
+                                                    <Col xs={5} className={`p-0 px-2 price-text ${prefs?.dir} ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-accent font-lg font-weight-bold`}>
+                                                        {Formatter?.numberToStringWithCurrency(item?.qunatity ? item?.qunatity * 20 : 20, false, prefs?.currency, 'rtl', prefs?.lang)}
                                                     </Col>
 
-                                                    <Col xs={3}>
+                                                    <Col xs={2}>
                                                         <button
                                                             onClick={this.changeQuantity.bind(this, item?._id, 'decrease')}
-                                                            className={`m-0 px-3 t-${prefs?.theme}-text-alternative t-${prefs?.theme}-bg-accent text-center rounded-sm font-lg`}
+                                                            className={`m-0 mx-0 px-3 t-${prefs?.theme}-text-alternative t-${prefs?.theme}-bg-accent text-center rounded-sm font-lg`}
                                                         >  
                                                             {'-'}
                                                         </button> 
                                                     </Col>
 
-                                                    <Col xs={2} className={`p-0 mx-0 price-text ${prefs?.dir} ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-alternative text-center`}>
+                                                    <Col xs={1} />
+
+                                                    <Col xs={1} className={`p-0 price-text ${prefs?.dir} ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-alternative text-center`}>
                                                         {item?.qunatity ? item?.qunatity : 0}
                                                     </Col>
 
-                                                    <Col xs={2}>
+                                                    <Col xs={1}>
                                                         <button
                                                             onClick={this.changeQuantity.bind(this, item?._id, 'increase')}
                                                             className={`m-0 px-3 t-${prefs?.theme}-text-alternative t-${prefs?.theme}-bg-accent text-center rounded-sm font-lg`}

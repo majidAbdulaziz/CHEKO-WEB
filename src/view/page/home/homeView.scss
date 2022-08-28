@@ -55,6 +55,7 @@
 {
     width: 25px !important;
     height: 25px !important;
+    margin-top: 5px !important;
 }
 
 .category-border
@@ -88,5 +89,14 @@
 .price-text
 {
     margin-top: 10px !important;
+}
+
+.best-sale-container
+{
+    background-color: #D0EAE3;
+    position: absolute !important;
+    margin-top: 100px !important;
+    left: -30px !important;
+    color: #599887 !important;
 }
 
