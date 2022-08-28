@@ -11,13 +11,16 @@
     "common_search": "البخث",
     "common_filter": "فلتر",
     "common_image": "صورة",
+    "common_calories": "سعرة حرارية",
 
     "action_search": "ابحث",
-  
+    "action_try_again": "حاول مرة أخرى",
+
     "msg_successful":"عملية ناجحة",
     "msg_changesSaved": "تم حفظ التغييرات بنجاح",
 
     "error_title": "تنبيه",
+    "error_generic": "حصل خطأ ما",
 
     "empty_state_item":"لا توجد عناصر حاليا",
 

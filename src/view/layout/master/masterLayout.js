@@ -140,7 +140,7 @@ class MasterLayoutView extends View
 											}
 										</Row>
 
-										<Row className={`search-container mt-10 p-0 rounded-md wrap`}>
+										<Row className={`search-container wrap mt-10 p-0 rounded-md wrap`}>
 											<Col xs={6} className={`search-column`}>
 												<Row className={`pt-3 pb-3`}>
 													<Col xs={1}>
@@ -149,7 +149,7 @@ class MasterLayoutView extends View
 
 													<Col xs={1} className={``}>
 														<input 
-															className={`header-input borderless ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-alternative t-${prefs?.theme}-caret-color-accent font-md rounded-sm`} 
+															className={`header-input borderless font-weight-bold ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-alternative t-${prefs?.theme}-caret-color-accent font-md rounded-sm`} 
 															type="text" 
 															autoComplete="off" 
 															placeholder={this.i18n('common_search')} 
@@ -160,7 +160,7 @@ class MasterLayoutView extends View
 												</Row>
 											</Col>
 
-											<Col xs={5} className={`filter-container search-column`}>
+											<Col xs={5} className={`filter-container search-column d-none d-md-block`}>
 												<Row className={`pt-3 pb-3`}>
 													<Col xs={1}>
 														<img src={filterIcon} /> 

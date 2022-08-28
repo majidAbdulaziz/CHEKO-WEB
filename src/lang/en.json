@@ -11,14 +11,17 @@
     "common_search": "Search",
     "common_filter": "Filter",
     "common_image": "Image",
+    "common_calories": "Cal",
     
     "action_search": "Search",
+    "action_try_again": "Try Again",
 
     "msg_successful":"Success",
     "msg_changesSaved": "Changes Saved Successfully",
 
     "error_title":"Heads Up",
-    
+    "error_generic": "Something went wrong",
+
     "empty_state_item":"No Item yet",
 
     "categories": 

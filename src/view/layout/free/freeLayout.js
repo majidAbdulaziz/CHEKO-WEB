@@ -15,7 +15,7 @@ export default class FreeLayoutView extends View
 		const prefs = Session.getPreferences();
 
         return (
-			<Row style={{direction:prefs?.dir}} className={`m-0 p-0 h-100 w-100 t-${prefs?.theme}-bg-body not-scrollable justify-content-center align-content-center text-center`}>
+			<Row style={{direction:prefs?.dir}} className={`m-0 p-0 h-100 w-100 t-${prefs?.theme}-bg-body justify-content-center align-content-center text-center`}>
 				{this.props.children}
 			</Row>
         );

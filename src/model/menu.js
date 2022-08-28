@@ -3,12 +3,11 @@ import AppConfigs from '../config/appConfigs';
 
 const MenuModel =
 {
-    
-    recharge: async function()
+    getMenu: async function()
     {
-        var url = AppConfigs?.apiBaseURL + '/v1/menu';
+        var url = AppConfigs?.apiBaseURL + 'v1/menu';
 
-        return await HTTP.post(url, {}).then(response =>{return response;})
+        return await HTTP.get(url, {}).then(response =>{return response;})
     }
 }
 

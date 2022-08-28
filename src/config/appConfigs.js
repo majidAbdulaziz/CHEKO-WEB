@@ -12,6 +12,9 @@ const CONFIG =
 	defaultTheme: "light",
 	supportedThemes: ["light", "dark"],
 
+	// Currency
+	defaultCurrency: 'sar',
+
 	// API
 	apiBaseURL: 'https://foodbukka.herokuapp.com/api/'
 

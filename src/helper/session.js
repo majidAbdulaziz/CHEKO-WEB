@@ -13,7 +13,6 @@ const Session =
             altrDir: dir === "rtl" ? "ltr" : "rtl",
             theme: localStorage.getItem("theme") ? localStorage.getItem("theme") : AppConfigs.defaultTheme,
             currency: localStorage.getItem("currency") ? localStorage.getItem("currency") : AppConfigs.defaultCurrency,
-            country: localStorage.getItem("country") ? localStorage.getItem("country") : AppConfigs.defaultCountryCode,
             
         };
     },
@@ -25,7 +24,6 @@ const Session =
                                 (key === "altrDir")? AppConfigs.supportedDirections :
                                 (key === "theme")? AppConfigs.supportedThemes :
                                 (key === "currency")? AppConfigs.supportedCurrencies :
-                                (key === "country")? AppConfigs.supportedCountries :
                                 [];
 
         if(supportedValues.includes(value))

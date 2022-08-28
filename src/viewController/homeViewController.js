@@ -3,6 +3,8 @@ import ViewController from '../core/viewController';
 import FreeLayoutView from '../view/layout/free/freeLayout';
 import HomeView from '../view/page/home/homeView';
 
+import MenuModel from '../model/menu';
+
 export default class HomeViewController extends ViewController
 {
 
@@ -49,19 +51,86 @@ export default class HomeViewController extends ViewController
                     qunatity: 0
                 },
             ],
+            list: [],
+            originalList: [],
 
             selectedCategory: 1
 		}
 	}
 
+    getMenu()
+    {
+        this._isMounted && this.startLoading();
+        this._isMounted && MenuModel?.getMenu()
+        .then(response => 
+        {
+            this._isMounted && this.startLoading();
+
+            if (response?.is_successful)
+            {
+                this._isMounted && this.setState({originalList: response?.Result}, () => 
+                {
+                    this._isMounted && this.setCountOfItemsInCategory(response?.Result);
+
+                    this._isMounted && this.filterList(this.state?.categories?.filter(category => category?.id === this.state?.selectedCategory)[0]?.title);
+                });
+            }
+            else
+            {
+                this._isMounted && this.showErrMsg(response?.error_msg, "error");
+            }
+        })
+        .catch(e =>
+        {
+            this._isMounted && this.startLoading();
+            this._isMounted && this.showErrMsg(this.i18n('error_generic'), "error");
+        })
+    }
+
+    filterList(keyword)
+    {
+        const list = this.state?.originalList;
+        let filteredList = [];
+
+        list?.forEach(item =>
+        {
+            if (typeof item?.menuname === 'string' && (item?.menuname?.toLowerCase()?.includes(keyword?.toLowerCase()) || item?.description?.toLowerCase()?.includes(keyword?.toLowerCase())))
+            {
+                this._isMounted && filteredList.push(item);
+            }
+        });
+        
+        this._isMounted && this.setState({list: filteredList});
+    }
+
+    setCountOfItemsInCategory(list)
+    {
+        const categories = this.state?.categories;
+
+        categories?.forEach(category =>
+        {
+            list?.forEach(item =>
+            {
+                if (typeof item?.menuname === 'string' && (item?.menuname?.toLowerCase()?.includes(category?.title?.toLowerCase()) || item?.description?.toLowerCase()?.includes(category?.title?.toLowerCase())))
+                {
+                    category.qunatity +=1;
+                }
+            })
+        });
+
+        this.setState({categories: categories});
+    }
+
     chooseCategory(id)
     {
         this._isMounted && this.setState({selectedCategory: id});
+        this._isMounted && this.filterList(this.state?.categories?.filter(category => category?.id === id)[0]?.title);
     }
 
 	viewControllerDidMount()
     {
 		this._isMounted && this.setTitle("title_home");
+        this._isMounted && this.getMenu();
 	}
 
 	render()
@@ -71,6 +140,7 @@ export default class HomeViewController extends ViewController
                     categories={this.state?.categories}
                     chooseCategory={this.chooseCategory.bind(this)}
                     selectedCategory={this.state?.selectedCategory}
+                    list={this.state?.list}
                 />
 		);
 	}

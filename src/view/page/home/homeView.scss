@@ -1,8 +1,29 @@
 @import "../../../assets/css/config.scss";
 
+.home-main-container 
+{
+    width: 99%;
+    margin-left: 7% !important;
+}
+
+.home-scrollable
+{
+    overflow-y: scroll;
+}
+
 .mt-15
 {
     margin-top: 45px !important;
+}
+
+.pt-15
+{
+    padding-top: 45px !important;
+}
+
+.category-container-spacer
+{
+    margin-right: 48px !important;
 }
 
 .category-container
@@ -36,4 +57,36 @@
     height: 25px !important;
 }
 
+.category-border
+{
+    opacity: 0.1;
+    border-bottom: 1px solid #21467E;
+    margin-bottom: 5px !important;
+}
+
+.menu-item
+{
+    width: 425px !important;
+    background-color: $color-white;
+    z-index: 11;
+    height: 200px;
+    margin-bottom: 50px !important;
+}
+
+.item-image
+{
+    width: 150px !important;
+    height: 150px !important;
+}
+
+.price-container
+{
+    margin-top: 55px !important;
+    padding-left: 1px !important;
+}
+
+.price-text
+{
+    margin-top: 10px !important;
+}
 

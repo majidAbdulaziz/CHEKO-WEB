@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const HTTP = {
-	post: function (url, postData)
+	get: function (url, postData)
 	{
 		return axios({
-			method: "post",
+			method: "get",
 			url: url,
 			data: postData
 		})
@@ -31,7 +31,7 @@ const HTTP = {
 				return {
 					is_successful: false,
 					error_code: 1000,
-					error_msg: response,
+					error_msg: response?.message,
 				};
 			});
 	}
