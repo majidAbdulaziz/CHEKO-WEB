@@ -1,0 +1,28 @@
+@import "../../../assets/css/config.scss";
+
+.mt-15
+{
+    margin-top: 45px !important;
+}
+
+.category-container
+{
+    width: 205px !important;
+    background-color: $color-white;
+    z-index: 11;
+    height: 71px;
+}
+
+.category-selected
+{
+    box-sizing: border-box;
+    border: 1px solid #FCEFF5;
+    box-shadow: 0px 7px 24px #DCDFE4;
+}
+
+.category-image
+{
+    width: 30px !important;
+    height: 25px !important;
+}
+

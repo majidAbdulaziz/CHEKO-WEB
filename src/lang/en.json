@@ -6,16 +6,27 @@
     "title_home": "Home",
     "title_map": "Map",
 
-    "common_welcome":"Welcome",
-
-    "common_hi":"Hi",
     "common_noInternet":"No internet connection found",
     "common_unknown": "Unknown",
+    "common_search": "Search",
+    "common_filter": "Filter",
+    "common_image": "Image",
+    
+    "action_search": "Search",
 
     "msg_successful":"Success",
     "msg_changesSaved": "Changes Saved Successfully",
 
     "error_title":"Heads Up",
     
-    "empty_state_item":"No Item yet"
+    "empty_state_item":"No Item yet",
+
+    "categories": 
+    {
+        "breakfast": "Breakfast",
+        "drinks": "Drinks",
+        "soups": "Soups",
+        "sushi": "Sushi",
+        "orders": "Orders"
+    }
 }

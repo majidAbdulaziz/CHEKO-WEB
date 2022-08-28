@@ -6,8 +6,15 @@ $size-text-lg: 24px;
 $size-text-xl: 36px;
 $size-section-titles: 19px;
 
+/* BORDER SIZES */
+$size-border-xs: 10px;
+$size-border-sm: 12px;
+$size-border-md: 14px;
+$size-border-lg: 24px;
+$size-border-xl: 36px;
+
 /* THEME-LIGHT */
-$color-light-primary: #ebeaee;
+$color-light-primary: #F5F6F8;
 $color-light-primary-highlight: #ffffff;
 $color-light-primary-with-alpha: rgba(235, 234, 238, 1);
 $color-light-secondary: #fcfcfc;
@@ -15,13 +22,13 @@ $color-light-secondary-highlight: #fcfcfc;
 $color-light-alternative: #2b2b2b;
 $color-light-alternative-highlight: #000000;
 $color-light-accent: #F4CBDF;
-$color-light-accent-highlight: #fd8b6c;
+$color-light-accent-highlight: #F4CBDF;
 $color-light-element: #f0f0f3;
 $color-light-exception: #f6f6f9;
 $color-light-quaternary:#4F008C;
 
 /* THEME-DARK */
-$color-dark-primary: #1b2128;
+$color-dark-primary: #1E1E1E;
 $color-dark-primary-highlight: #ffffff;
 $color-dark-primary-with-alpha: rgba(20, 25, 31, 0.9);
 $color-dark-secondary: #1f252c;
@@ -29,11 +36,13 @@ $color-dark-secondary-highlight: #262e37;
 $color-dark-alternative: #919a9f;
 $color-dark-alternative-highlight: #ffffff;
 $color-dark-accent: #F4CBDF;
-$color-dark-accent-highlight: #fd8b6c;
+$color-dark-accent-highlight: #F4CBDF;
 $color-dark-element: #1f252c;
 
 /* EXTRA CONSTANT COLORS */
 $color-accent: #F4CBDF;
+$color-white: #ffffff;
+$color-grey: #ffffff;
 $color-rose: #ff375e;
 $color-sky: #1bced8;
 $color-purple: #a54ee1;

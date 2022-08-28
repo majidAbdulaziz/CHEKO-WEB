@@ -5,8 +5,6 @@ import InternalErrorView from '../../view/page/internalError/internalErrorView';
 
 export default class InternalErrorViewController extends ViewController
 {
-
-
 	viewControllerDidMount()
     {
 		this.setTitle("title_internalError");

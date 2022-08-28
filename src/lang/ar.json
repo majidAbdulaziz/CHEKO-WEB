@@ -6,14 +6,27 @@
     "title_home": "الصفحة الرئيسية",
     "title_map": "الخريطة",
 
-    "common_hi":"اهلا",
     "common_noInternet":"تعذر العثور على اتصال إنترنت",
     "common_unknown": "غير معروف",
+    "common_search": "البخث",
+    "common_filter": "فلتر",
+    "common_image": "صورة",
+
+    "action_search": "ابحث",
   
     "msg_successful":"عملية ناجحة",
     "msg_changesSaved": "تم حفظ التغييرات بنجاح",
 
     "error_title": "تنبيه",
 
-    "empty_state_item":"لا توجد عناصر حاليا"
+    "empty_state_item":"لا توجد عناصر حاليا",
+
+    "categories": 
+    {
+        "breakfast": "فطور",
+        "drinks": "مشروبات",
+        "soups": "حساء",
+        "sushi": "سوشي",
+        "orders": "الطلبات"
+    }
 }

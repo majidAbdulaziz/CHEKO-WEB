@@ -26,9 +26,12 @@ import ReactNotification from 'react-notifications-component';
 
 
 import MasterLayout from "./view/layout/master/masterLayout";
+
 import PageNotFoundViewController from "./viewController/static/pageNotFoundViewController";
 import InternalErrorViewController from "./viewController/static/internalErrorViewController";
 import RefreshViewController from "./viewController/static/refreshViewController";
+
+import HomeViewController from "./viewController/homeViewController";
 
 require('bootstrap/dist/css/bootstrap.min.css');
 require("./assets/css/dir-ltr.scss");
@@ -80,21 +83,18 @@ class App extends Component
 				<Switch>
 					<Route exact path="/500" render={(props) => <InternalErrorViewController toggleModal={this.toggleModal.bind(this)} {...props} />} />
 					<Route exact path="/404" render={(props) => <PageNotFoundViewController toggleModal={this.toggleModal.bind(this)} {...props} />} />
-					<>		
+						
+					<Route exact path="/" render={() => { return ( <Redirect to="/home" />) }}/>
+					<Route exact path="/home">
 						<MasterLayout
-							sideMenuKey={this.state?.sideMenuKey}
-							toggleModal={this.toggleModal.bind(this)}
-						>
-							
-							<Switch>
-								<Route exact path="/" render={() => { return ( <Redirect to="/overview" />) }}/>
-								
+								toggleModal={this.toggleModal.bind(this)}
+						/>
 
-								<Route path="/refresh/:page" render={(props) => <RefreshViewController {...props}/>}/>	
-								<Route exact path="*" render={(props) => <PageNotFoundViewController toggleModal={this.toggleModal.bind(this)} {...props}/>}/> 
-							</Switch>
-						</MasterLayout>	
-					</>
+						<HomeViewController toggleModal={this.toggleModal.bind(this)} />
+					</Route>
+
+					<Route path="/refresh/:page" render={(props) => <RefreshViewController {...props}/>}/>	
+					<Route exact path="*" render={(props) => <PageNotFoundViewController {...props}/>} /> 
 				</Switch>
 			</>
 		);

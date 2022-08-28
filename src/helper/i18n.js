@@ -21,7 +21,6 @@ i18n
 	.init({
 		resources,
 		lng: localStorage.getItem("lang") ? localStorage.getItem("lang"): AppConfigs?.defaultLanguage,
-		keySeparator: false,
 		interpolation: {
 			escapeValue: false,
 		},

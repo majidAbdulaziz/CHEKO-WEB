@@ -36,3 +36,35 @@
     width: 93%;
     height: 122px;
 }
+
+.search-container
+{
+    width: 107%;
+    background-color: $color-white;
+    z-index: 11;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.05);
+    height: 55px;
+}
+
+.mt-10
+{
+    margin-top: 30px !important;
+}
+
+.filter-container
+{
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.search-column
+{
+    height: 100%;
+}
+
+.header-input
+{
+    z-index: 10000;
+    background-color: transparent;
+    position: absolute;
+    width: 30%;
+}
