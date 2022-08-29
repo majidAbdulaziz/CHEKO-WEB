@@ -18,77 +18,8 @@ export default class SkeletonScreen extends View
                 {this.props.skeletonType === "table"
                 ?
                     <Table responsive={true}>
-                        <thead className={` font-md`}>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <th className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                        </thead>
-                        <tbody className={``}>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            <tr className={`border-bottom-table t-${prefs?.theme}-bb-alternative-highlight`}>
-                                <td className={`p-4 skeletonSceen-blink t-${prefs?.theme}-bg-secondary`}/>
-                            </tr>
-                            
-                        </tbody>
+                        
                     </Table>
-                
-                
                 :
                     null
         }

@@ -1,6 +1,5 @@
 import ViewController from '../core/viewController';
 
-import FreeLayoutView from '../view/layout/free/freeLayout';
 import HomeView from '../view/page/home/homeView';
 
 import MenuModel from '../model/menu';
@@ -51,6 +50,7 @@ export default class HomeViewController extends ViewController
                     qunatity: 0
                 },
             ],
+            searchKeyWord: '',
             list: [],
             originalList: [],
 
@@ -89,18 +89,39 @@ export default class HomeViewController extends ViewController
 
     filterList(keyword)
     {
+        if (this.state?.categories?.filter(category => category?.title === keyword).length)
+        {
+            this._isMounted && this.setState({selectedCategory: this.state?.categories?.filter(category => category?.title === keyword)[0]?.id});
+        }
+        else
+        {
+            this._isMounted && this.setState({selectedCategory: -1});
+        }
+
         const list = this.state?.originalList;
+
         let filteredList = [];
+        const keywordArray = keyword?.toLowerCase()?.split(/(\s+)/);
+        let menunameArray = [], descriptionArray = [];
 
         list?.forEach(item =>
         {
-            if (typeof item?.menuname === 'string' && (item?.menuname?.toLowerCase()?.includes(keyword?.toLowerCase()) || item?.description?.toLowerCase()?.includes(keyword?.toLowerCase())))
+            if (typeof item?.menuname === 'string' && typeof item?.description === 'string')
             {
-                this._isMounted && filteredList.push(item);
+                menunameArray = item?.menuname?.toLowerCase()?.split(/(\s+)/);
+                descriptionArray = item?.description?.toLowerCase()?.split(/(\s+)/);
+    
+                if (item?.menuname?.toLowerCase()?.includes(keyword?.toLowerCase())
+                    || item?.description?.toLowerCase()?.includes(keyword?.toLowerCase())
+                    || menunameArray?.some(menuName => keywordArray?.includes(menuName))
+                    || descriptionArray?.some(description => keywordArray?.includes(description)))
+                {
+                    this._isMounted && filteredList.push(item);
+                }
             }
         });
         
-        this._isMounted && this.setState({list: filteredList});
+        this._isMounted && this.setState({list: filteredList, searchKeyWord: keyword});
     }
 
     setCountOfItemsInCategory(list)
@@ -163,6 +184,7 @@ export default class HomeViewController extends ViewController
 	viewControllerDidMount()
     {
 		this._isMounted && this.setTitle("title_home");
+        this._isMounted && this.props?.setChildRef(this);
         this._isMounted && this.getMenu();
 	}
 
@@ -173,6 +195,7 @@ export default class HomeViewController extends ViewController
                     categories={this.state?.categories}
                     chooseCategory={this.chooseCategory.bind(this)}
                     selectedCategory={this.state?.selectedCategory}
+                    searchKeyWord={this.state?.searchKeyWord}
                     changeQuantity={this.changeQuantity.bind(this)}
                     list={this.state?.list}
                 />

@@ -18,12 +18,13 @@ import "core-js/features/promise";
 import "regenerator-runtime/runtime";
 import "./helper/i18n";
 
-import { Component, createRef } from "react";
+import { Component } from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
 
 import ReactNotification from 'react-notifications-component';
 
+import Session from './helper/session';
 
 import MasterLayout from "./view/layout/master/masterLayout";
 
@@ -51,10 +52,27 @@ class App extends Component
 		this.state =
 		{
 			optionalModalData: {},
-			activeModal: undefined
+			activeModal: undefined,
+			filterOptions:
+			[
+				{
+					id: 1,
+					titleAR: 'رز',
+					titleEN: 'Rice'
+				},
+				{
+					id: 2,
+					titleAR: 'حساء',
+					titleEN: 'Soup'
+				},
+				{
+					id: 3,
+					titleAR: 'برقر',
+					titleEN: 'Burger'
+				},
+			]
 		}
 
-		this._child = createRef();
 		this._isMounted = false;
 	}
 
@@ -67,6 +85,34 @@ class App extends Component
 			this._isMounted && this.setState({ ...this.state, activeModal: undefined });
 		}
 		else { }
+	}
+
+	setChildRef(ref)
+	{
+		this._child = ref;
+	}
+
+	search(keyword)
+	{
+		this._child?.filterList(keyword);
+	}
+
+	getFilterOptions()
+	{
+		const filters = this.state?.filterOptions;
+		const formattedFilters = [];
+
+		const prefs = Session.getPreferences();
+
+		filters?.forEach(filter =>
+		{
+			formattedFilters?.push({
+				id: filter?.id,
+				title: prefs?.lang === 'en' ? filter?.titleEN : filter?.titleAR
+			});
+		});
+
+		return formattedFilters;
 	}
 
 	componentDidMount() {
@@ -87,10 +133,12 @@ class App extends Component
 					<Route exact path="/" render={() => { return ( <Redirect to="/home" />) }}/>
 					<Route exact path="/home">
 						<MasterLayout
-								toggleModal={this.toggleModal.bind(this)}
+							toggleModal={this.toggleModal.bind(this)}
+							search={this.search.bind(this)}
+							filterOptions={this.getFilterOptions()}
 						/>
 
-						<HomeViewController toggleModal={this.toggleModal.bind(this)} />
+						<HomeViewController setChildRef={this.setChildRef.bind(this)} toggleModal={this.toggleModal.bind(this)} />
 					</Route>
 
 					<Route path="/refresh/:page" render={(props) => <RefreshViewController {...props}/>}/>	

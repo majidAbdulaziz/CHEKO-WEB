@@ -3,11 +3,12 @@ import View from '../../../core/view';
 import { withRouter } from 'react-router';
 import {createRef} from "react";
 import { Link } from "react-router-dom";
-import {Container, Row, Col} from "reactstrap";
+import {Row, Col} from "reactstrap";
 
 import NoInternetConnectionViewController from '../../../viewController/static/noInternetConnectionViewController';
 
 import CustomButton from '../../component/button/customButton';
+import SearchableDropdownMenu from '../../component/searchableDropdownMenu/searchableDropdownMenu';
 
 import headerBackground from '../../../assets/images/headerBackground.png';
 import searchIcon from '../../../assets/images/search.png'
@@ -50,20 +51,28 @@ class MasterLayoutView extends View
 		this._isMounted && this.setState({...this.state, searchKey:e.target.value});
 	}
 
-	handleFilterChanges(e)
-	{
-		this._isMounted && this.setState({...this.state, filterKey:e.target.value});
-	}
-	
-	clearSearchResults()
-	{
-		document.getElementById("search").value = "";
-		this._isMounted && this.setState({...this.state, searchKey:''});
-	}
-	
 	search()
 	{
-		alert(this.state?.searchKey)
+		this._isMounted && this.props?.search(this.state?.searchKey);
+	}
+
+	handleFilterSelectChanges(key, values)
+	{
+		const filters = this.props?.filterOptions;
+		let keyWords = '';
+
+		values?.forEach(filterID => 
+		{
+			filters?.forEach(filter => 
+			{
+				if (filterID === filter?.id)
+				{
+					keyWords += filter?.title + ' ';
+				}
+			});
+		});
+
+		this._isMounted && this.props?.search(keyWords);
 	}
 
 	updateInternetConnection(flag)
@@ -144,7 +153,7 @@ class MasterLayoutView extends View
 											<Col xs={6} className={`search-column`}>
 												<Row className={`pt-3 pb-3`}>
 													<Col xs={1}>
-														<img src={searchIcon} /> 
+														<img src={searchIcon} alt={this.i18n('common_search') + ' ' + this.i18n('common_image')} /> 
 													</Col>
 
 													<Col xs={1} className={``}>
@@ -160,21 +169,28 @@ class MasterLayoutView extends View
 												</Row>
 											</Col>
 
-											<Col xs={5} className={`filter-container search-column d-none d-md-block`}>
+											<Col xs={2} md={4} lg={4} xl={5} className={`filter-container search-column d-none d-md-block`}>
 												<Row className={`pt-3 pb-3`}>
 													<Col xs={1}>
-														<img src={filterIcon} /> 
+														<img src={filterIcon} alt={this.i18n('common_filter') + ' ' + this.i18n('common_image')} /> 
 													</Col>
 
-													<Col xs={1} className={``}>
-														<input 
-															className={`header-input borderless ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-alternative t-${prefs?.theme}-caret-color-accent font-md rounded-sm`} 
-															type="text" 
-															autoComplete="off" 
-															placeholder={this.i18n('common_filter')} 
-															value={this.state.filterKey} 
-															onChange={this.handleFilterChanges.bind(this)}
-														/>                                    
+													<Col xs={1} className={`dropdown-container`}>
+														<SearchableDropdownMenu
+															key={'id'}
+															dir={prefs?.dir}
+															theme={prefs?.theme}
+															isSearchable={true}
+															isMultiSelection={true}
+															list={this.props?.filterOptions ?? []}
+															menuPlaceholder={[this.i18n("common_filter")]}
+															defaultMenuValue={[]}
+															menuLabelKeys={["title"]}
+															menuValueKey={"id"}
+															filterKeys={["title"]}
+															sortKey={"title"}
+															onMenuMultiChange={this.handleFilterSelectChanges.bind(this, "id")}
+														/>                               
 													</Col>
 												</Row>
 											</Col>
