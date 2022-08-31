@@ -34,7 +34,7 @@ export default class HomeView extends View
 
         return (
             <Col style={{direction:prefs?.dir}} className={`home-scrollable m-0 p-0 h-100 w-100 t-${prefs?.theme}-bg-body text-center`}>
-                <Row className={`home-main-container pt-15`}>
+                <Row className={`home-main-container-${prefs?.dir} pt-15`}>
                     <Col xs={10}>
                         <Row className={`wrap ${prefs?.dir}`}>
                             {

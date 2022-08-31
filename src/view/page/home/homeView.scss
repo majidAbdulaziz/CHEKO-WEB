@@ -1,9 +1,16 @@
 @import "../../../assets/css/config.scss";
 
-.home-main-container 
+.home-main-container-ltr
 {
     width: 99%;
     margin-left: 7% !important;
+    padding-bottom: 300px !important;
+}
+
+.home-main-container-rtl
+{
+    width: 99%;
+    margin-right: 7% !important;
     padding-bottom: 300px !important;
 }
 

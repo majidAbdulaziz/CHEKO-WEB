@@ -83,14 +83,22 @@
     border-radius: 20px;
     cursor: pointer;
     height: 24px;
-    float: left;
     overflow: hidden;
     position: absolute;
     width: 48px;
-    margin-left: 7% !important;
     margin-top: 30px !important;
     z-index: 11111;
   }
+
+  .switch-wrapper-ltr {
+    margin-left: 7% !important;
+    float: left;
+  }
+  .switch-wrapper-rtl {
+    margin-right: 7% !important;
+    float: left;
+  }
+
   .switch-wrapper.large {
     height: 40px;
     width: 80px;

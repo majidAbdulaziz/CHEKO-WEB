@@ -13,8 +13,6 @@ import SearchableDropdownMenu from '../../component/searchableDropdownMenu/searc
 import headerBackground from '../../../assets/images/headerBackground.png';
 import searchIcon from '../../../assets/images/search.png'
 import filterIcon from '../../../assets/images/filter.png'
-import sunIcon from '../../../assets/images/sun.png'
-import moonIcon from '../../../assets/images/moon.png'
 
 import Session from "../../../helper/session";
 
@@ -223,7 +221,7 @@ class MasterLayoutView extends View
 										</Row>
 									</Col>
 									<Col xs={1} className={`switch-wrapper-postion`}> 
-										<span style={{transform: "rotate(90deg)"}} onClick={e => {this.handleThemeChange(prefs?.theme)}} className={`switch-wrapper`}>
+										<span style={{transform: "rotate(90deg)"}} onClick={e => {this.handleThemeChange(prefs?.theme)}} className={`switch-wrapper switch-wrapper-${prefs?.dir}`}>
 											<input
 												type="checkbox"
 												checked={prefs?.theme === 'light' ? false : true}

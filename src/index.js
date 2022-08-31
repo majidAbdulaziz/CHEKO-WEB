@@ -122,6 +122,9 @@ class App extends Component
 
 	componentDidMount() {
 		this._isMounted = true;
+		// manually set lang here
+		Session.setPreferences('lang', 'en');
+		Session.setPreferences('dir', 'ltr');
 	}
 
 	componentWillUnmount() {
