@@ -13,6 +13,7 @@
     "common_image": "Image",
     "common_calories": "Cal",
     "common_bestSale": "Best Sale",
+    "common_noResults": "No Result Found",
     
     "action_search": "Search",
     "action_try_again": "Try Again",

@@ -13,6 +13,8 @@ import SearchableDropdownMenu from '../../component/searchableDropdownMenu/searc
 import headerBackground from '../../../assets/images/headerBackground.png';
 import searchIcon from '../../../assets/images/search.png'
 import filterIcon from '../../../assets/images/filter.png'
+import sunIcon from '../../../assets/images/sun.png'
+import moonIcon from '../../../assets/images/moon.png'
 
 import Session from "../../../helper/session";
 
@@ -49,6 +51,16 @@ class MasterLayoutView extends View
 	handleSearchChanges(e)
 	{
 		this._isMounted && this.setState({...this.state, searchKey:e.target.value});
+	}
+
+	handleThemeChange(currentTheme)
+	{
+		this._isMounted && Session?.setPreferences('theme', currentTheme === 'light' ? 'dark' : 'light');
+
+		setTimeout(() => 
+		{
+			this._isMounted && this.props?.forceUpdate();
+		}, 250);
 	}
 
 	search()
@@ -121,9 +133,7 @@ class MasterLayoutView extends View
 					<div style={{direction:prefs?.dir}} className={`masterLayout-mainContainer t-${prefs?.theme}-bg-body`}>
 						<div className={`masterLayout-bodyContainer`}>
 
-							<div style={{backgroundImage: `url(${headerBackground})`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}} className={`t-${prefs?.theme}-masterLayout-headerBackgorund-filter masterLayout-headerBackgorund`} />
-
-							<div className={`t-${prefs?.theme}-bg-header ${prefs?.dir}-header-rounded-bottom-trailing masterLayout-headerContainer`}>
+							<div style={{backgroundImage: `url(${headerBackground})`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}}  className={` t-${prefs?.theme}-bg-header ${prefs?.dir}-header-rounded-bottom-trailing masterLayout-headerContainer`}>
 								<Row>
 									<Col xs={1}/>
 									<Col xs={10}>
@@ -139,7 +149,7 @@ class MasterLayoutView extends View
 																pt-4 pb-3 px-3 
 																${prefs?.dir}-rounded-bottom 
 																${tab?.route === this.props.location.pathname ? `t-${prefs?.theme}-bg-accent ` : ''} 
-																${tab?.route === this.props.location.pathname ? `t-${prefs?.theme}-text-alternative` : `t-${prefs?.theme}-text-secondary`} 
+																${tab?.route === this.props.location.pathname ? `${prefs?.theme === 'light' ? `t-${prefs?.theme}-text-alternative` : `t-${prefs?.theme}-text-primary` }` : prefs?.theme === 'light' ? `t-${prefs?.theme}-text-secondary` : `t-${prefs?.theme}-text-alternative`} 
 																${prefs?.dir}-primaryFont text-center
 															`}
 															text={tab?.title}
@@ -149,7 +159,7 @@ class MasterLayoutView extends View
 											}
 										</Row>
 
-										<Row className={`search-container wrap mt-10 p-0 rounded-md wrap`}>
+										<Row className={`search-container t-${prefs?.theme}-bg-primary-highlight wrap mt-10 p-0 rounded-md`}>
 											<Col xs={6} className={`search-column`}>
 												<Row className={`pt-3 pb-3`}>
 													<Col xs={1}>
@@ -212,7 +222,21 @@ class MasterLayoutView extends View
 											</Col>
 										</Row>
 									</Col>
+									<Col xs={1} className={`switch-wrapper-postion`}> 
+										<span style={{transform: "rotate(90deg)"}} onClick={e => {this.handleThemeChange(prefs?.theme)}} className={`switch-wrapper`}>
+											<input
+												type="checkbox"
+												checked={prefs?.theme === 'light' ? false : true}
+												disabled={false}
+											/>
+											<span className={`switch ${prefs?.theme === 'light' ? `t-${prefs?.theme}-bg-alternative` : `t-${prefs?.theme}-bg-primary-highlight` } `}>
+												<span className="switch-handle" />
+											</span>
+
+										</span>
+									</Col>
 								</Row>
+								
 							</div>
 						</div>
 					</div>

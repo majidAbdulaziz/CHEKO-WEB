@@ -23,15 +23,15 @@ export default class EmptyState extends View
                         <Icon
                             className={`t-${prefs.theme}-text-alternative`}
                             cssClasses={`t-${prefs.theme}-text-alternative`}
-                            height="100px"
-                            width="100px"
+                            height="50px"
+                            width="50px"
                         />
                     </div>
                 :
                     null
                 }
 
-                <div className={`p-0 pt-2 line-height font-md t-${prefs.theme}-alternative text-center ${prefs?.dir}-secondaryFont`}>
+                <div className={`p-0 pt-2 line-height font-md t-${prefs.theme}-text-alternative text-center ${prefs?.dir}-secondaryFont`}>
                     {this.props?.text}
                 </div>
             </Row>

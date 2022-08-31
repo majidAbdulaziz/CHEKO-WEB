@@ -1,0 +1,76 @@
+@import "../../../assets/css/config.scss";
+
+.modal-list-body
+{
+	filter:drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.3));
+	padding-bottom: 55px !important;
+	top:5px !important;
+	min-width: 175px;
+    max-width: 200px;
+    overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.close-btn-style
+{
+	background-color: $color-grey !important;
+}
+
+.modal-remove
+{
+    color: $color-danger !important;
+}
+
+@media (min-width: $breakpoint-xl)
+{
+    .custom-modal-col
+	{
+		min-width: 670px !important;
+		max-width: 670px !important;
+	}
+}
+
+@media (max-width: ($breakpoint-xl - 1))
+{
+    .custom-modal-col
+	{
+		min-width: 670px !important;
+		max-width: 670px !important;
+	}
+}
+
+@media (max-width: ($breakpoint-lg - 1))
+{
+    .custom-modal-col
+	{
+		min-width: 600px !important;
+		max-width: 600px !important;
+	}
+}
+
+@media (max-width: ($breakpoint-md - 1))
+{
+    .custom-modal-col
+	{
+		min-width: 550px !important;
+		max-width: 550px !important;
+	}
+}
+
+@media (max-width: ($breakpoint-sm - 1))
+{
+    .custom-modal-col
+	{
+		min-width: 450px !important;
+		max-width: 450px !important;
+	}
+}
+
+@media (max-width: ($breakpoint-xs - 1))
+{
+	.custom-modal-col
+	{
+		min-width: 370px !important;
+		max-width: 370px !important;
+	}
+}

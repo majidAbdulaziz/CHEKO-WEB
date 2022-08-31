@@ -14,7 +14,7 @@ export default class ProductCard extends View
         const prefs = Session.getPreferences();
         
         return (
-            <Col xs={1} className={`${prefs?.dir} menu-item m-0 mt-2 mb-2 mx-4 p-3 pt-4 px-4 rounded-md`}>
+            <Col xs={1} onClick={() => this.props?.toggleModal(this.props?.item)} className={`${prefs?.dir} t-${prefs?.theme}-bg-primary-highlight menu-item m-0 mt-2 mb-2 mx-4 p-3 pt-4 px-4 rounded-md`}>
                 <Row className={``}>
                     <img
                         src={this.props?.item?.images[0]} 
@@ -33,7 +33,7 @@ export default class ProductCard extends View
                         {
                             (this.props?.index === 0 || this.props?.index === 1)
                             ?
-                                <div className={`best-sale-container px-3 py-1 ${prefs?.dir} mt-3 ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-alternative-highlight font-md rounded-xs`}>
+                                <div className={`best-sale-container px-3 py-1 ${prefs?.dir} mt-3 ${prefs?.dir}-primaryFont font-md rounded-xs`}>
                                     {this.i18n('common_bestSale')}
                                 </div>
                             :
@@ -42,14 +42,14 @@ export default class ProductCard extends View
 
 
                         <Row className={`price-container`}>
-                            <Col xs={5} className={`p-0 px-2 price-text ${prefs?.dir} ${prefs?.dir}-primaryFont t-${prefs?.theme}-text-accent font-lg font-weight-bold`}>
+                            <Col xs={5} className={`p-0 px-2 price-text ${prefs?.dir} ${prefs?.dir}-primaryFont ${prefs?.theme === 'light' ? `t-${prefs?.theme}-text-accent` : `t-${prefs?.theme}-text-alternative opacity-50`} font-lg font-weight-bold`}>
                                 {Formatter?.numberToStringWithCurrency(this.props?.item?.qunatity ? this.props?.item?.qunatity * 20 : 20, false, prefs?.currency, 'rtl', prefs?.lang)}
                             </Col>
 
                             <Col xs={2}>
                                 <button
-                                    onClick={() => this.props?.changeQuantity(this.props?.item?._id, 'decrease')}
-                                    className={`m-0 mx-0 px-3 t-${prefs?.theme}-text-alternative t-${prefs?.theme}-bg-accent text-center rounded-sm font-lg`}
+                                    onClick={(e) =>{e.stopPropagation(); this.props?.changeQuantity(this.props?.item?._id, 'decrease')}}
+                                    className={`m-0 mx-0 px-3 t-${prefs?.theme}-text-alternative ${prefs?.theme === 'light' ? `t-${prefs?.theme}-bg-accent` : `square border border-1 t-${prefs?.theme}-border-accent t-${prefs?.theme}-text-accent`} text-center rounded-sm font-lg`}
                                 >  
                                     {'-'}
                                 </button> 
@@ -63,8 +63,9 @@ export default class ProductCard extends View
 
                             <Col xs={1}>
                                 <button
-                                    onClick={() => this.props?.changeQuantity(this.props?.item?._id, 'increase')}
-                                    className={`m-0 px-3 t-${prefs?.theme}-text-alternative t-${prefs?.theme}-bg-accent text-center rounded-sm font-lg`}
+                                    onClick={(e) =>{e.stopPropagation(); this.props?.changeQuantity(this.props?.item?._id, 'increase')}}
+                                    className={`m-0 px-3 t-${prefs?.theme}-text-alternative ${prefs?.theme === 'light' ? `t-${prefs?.theme}-bg-accent` : `square border border-1 t-${prefs?.theme}-border-accent t-${prefs?.theme}-text-accent`} text-center rounded-sm font-lg`}
+                                    style={{zIndex:1000000}}
                                 >  
                                     {'+'}
                                 </button> 

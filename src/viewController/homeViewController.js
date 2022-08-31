@@ -61,10 +61,14 @@ export default class HomeViewController extends ViewController
     getMenu()
     {
         this._isMounted && this.startLoading();
+
         this._isMounted && MenuModel?.getMenu()
         .then(response => 
         {
-            this._isMounted && this.startLoading();
+            setTimeout(() => 
+            {
+                this._isMounted && this.stopLoading();
+            }, 2000);
 
             if (response?.is_successful)
             {
@@ -82,7 +86,7 @@ export default class HomeViewController extends ViewController
         })
         .catch(e =>
         {
-            this._isMounted && this.startLoading();
+            this._isMounted && this.stopLoading();
             this._isMounted && this.showErrMsg(this.i18n('error_generic'), "error");
         })
     }
@@ -181,6 +185,11 @@ export default class HomeViewController extends ViewController
         this._isMounted && this.setState({list: menu});
     }
 
+    toggleModal(action, activeModal, optionalData)
+    {
+        this._isMounted && this.props?.toggleModal(action, activeModal, optionalData);
+    }
+
 	viewControllerDidMount()
     {
 		this._isMounted && this.setTitle("title_home");
@@ -197,7 +206,9 @@ export default class HomeViewController extends ViewController
                     selectedCategory={this.state?.selectedCategory}
                     searchKeyWord={this.state?.searchKeyWord}
                     changeQuantity={this.changeQuantity.bind(this)}
+                    toggleModal={this.toggleModal.bind(this)}
                     list={this.state?.list}
+                    viewIsLoading={this.state?.viewIsLoading}
                 />
 		);
 	}

@@ -33,6 +33,7 @@ import InternalErrorViewController from "./viewController/static/internalErrorVi
 import RefreshViewController from "./viewController/static/refreshViewController";
 
 import HomeViewController from "./viewController/homeViewController";
+import ProductModal from "./view/modal/productModal/productModal";
 
 require('bootstrap/dist/css/bootstrap.min.css');
 require("./assets/css/dir-ltr.scss");
@@ -84,7 +85,6 @@ class App extends Component
 		else if (action.toLowerCase() === "close") {
 			this._isMounted && this.setState({ ...this.state, activeModal: undefined });
 		}
-		else { }
 	}
 
 	setChildRef(ref)
@@ -95,6 +95,11 @@ class App extends Component
 	search(keyword)
 	{
 		this._child?.filterList(keyword);
+	}
+
+	changeQuantity(id, action)
+	{
+		this._child?.changeQuantity(id, action);
 	}
 
 	getFilterOptions()
@@ -126,6 +131,14 @@ class App extends Component
 	render() {
 		return (
 			<>
+			{
+				(this.state.activeModal === "productModal")
+				?
+					<ProductModal toggleModal={this.toggleModal.bind(this)} changeQuantity={this.changeQuantity.bind(this)} optionalModalData={this.state.optionalModalData} />
+				:
+
+					null
+			}
 				<Switch>
 					<Route exact path="/500" render={(props) => <InternalErrorViewController toggleModal={this.toggleModal.bind(this)} {...props} />} />
 					<Route exact path="/404" render={(props) => <PageNotFoundViewController toggleModal={this.toggleModal.bind(this)} {...props} />} />
@@ -136,8 +149,10 @@ class App extends Component
 							toggleModal={this.toggleModal.bind(this)}
 							search={this.search.bind(this)}
 							filterOptions={this.getFilterOptions()}
+							forceUpdate={this.forceUpdate?.bind(this)}
 						/>
-
+							
+								
 						<HomeViewController setChildRef={this.setChildRef.bind(this)} toggleModal={this.toggleModal.bind(this)} />
 					</Route>
 

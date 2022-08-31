@@ -6,6 +6,8 @@ import Session from '../../../helper/session';
 
 import CategoryCard from '../../component/categoryCard/categoryCard';
 import ProductCard from '../../component/productCard/productCard';
+import EmptySate from '../../component/emptyState/emptyState';
+import SkeletonScreen from '../../component/skeletonScreen/skeletonScreen';
 
 import './homeView.scss';
 
@@ -18,8 +20,12 @@ export default class HomeView extends View
 
     changeQuantity(id, action)
     {
-        console.log(id);
         this._isMounted && this.props?.changeQuantity(id, action);
+    }
+
+    toggleModal(action, activeModal, optionalData)
+    {
+        this._isMounted && this.props?.toggleModal(action, activeModal, optionalData);
     }
 
     render()
@@ -50,18 +56,39 @@ export default class HomeView extends View
                             <Col xs={10} className={`category-border`} />
                         </Row>
 
-                        <Row className={`wrap mt-5`}>
-                            {
-                                this.props?.list?.map((item, index) => (
-                                    <ProductCard 
-                                        key={item?._id} 
-                                        item={item} 
-                                        index={index} 
-                                        changeQuantity={this.changeQuantity.bind(this)} 
-                                    />
-                                ))
-                            }
-                        </Row>
+                        {
+                            (!this.props?.viewIsLoading && this.props?.list?.length === 0)
+                            ?
+                                <EmptySate 
+                                    shouldShowIcon
+                                    icon={'Document'}
+                                    text={this.i18n('common_noResults')}
+                                />
+                            :
+                                (this.props?.viewIsLoading)
+                                ?
+                                    <Row className={`wrap mt-5`}>
+                                        <SkeletonScreen skeletonType={'product'} />
+                                        <SkeletonScreen skeletonType={'product'} />
+                                        <SkeletonScreen skeletonType={'product'} />
+                                        <SkeletonScreen skeletonType={'product'} />
+                                    </Row>
+                                :
+                                    <Row className={`wrap mt-5`}>
+                                        {
+                                            this.props?.list?.map((item, index) => (
+                                                <ProductCard 
+                                                    key={item?._id} 
+                                                    item={item} 
+                                                    index={index} 
+                                                    changeQuantity={this.changeQuantity.bind(this)} 
+                                                    toggleModal={this.toggleModal.bind(this, "open", 'productModal')}
+                                                />
+                                            ))
+                                        }
+                                    </Row>
+                        }
+
                     </Col>
                 </Row>
             </Col>

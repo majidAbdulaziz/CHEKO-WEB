@@ -37,7 +37,41 @@
     width: 125px !important;
     border-radius: 50%;
     animation: blinker 1s linear infinite;
-    
+}
+
+.menu-item
+{
+    width: 425px !important;
+    background-color: $color-white;
+    z-index: 11;
+    height: 200px;
+    margin-bottom: 50px !important;
+}
+
+.item-image
+{
+    width: 150px !important;
+    height: 150px !important;
+}
+
+.price-container
+{
+    margin-top: 55px !important;
+    padding-left: 1px !important;
+}
+
+.price-text
+{
+    margin-top: 10px !important;
+}
+
+.best-sale-container
+{
+    background-color: #D0EAE3;
+    position: absolute !important;
+    margin-top: 100px !important;
+    left: -30px !important;
+    color: #599887 !important;
 }
 
 

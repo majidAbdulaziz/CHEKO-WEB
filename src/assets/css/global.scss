@@ -616,7 +616,7 @@ button:focus {
     overflow-y: scroll;
     outline: 0 !important;
     animation: fadein $animation-speed-slow;
-    backdrop-filter: blur(17px) brightness(80%);
+    backdrop-filter: brightness(30%);
     background-color: rgba(0, 0, 0, 0.06);
 }
 .custom-modal-container
@@ -728,9 +728,8 @@ button:focus {
 
 .custom-modal-closeButton
 {
-    width: 40px;
-    height: 40px;
-    padding-top: 9px;
+    width: 25px;
+    height: 25px;
 	-moz-border-radius: 20px;
 	-webkit-border-radius: 20px;
 	-khtml-border-radius: 20px;
